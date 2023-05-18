@@ -1,25 +1,19 @@
-import logo from './logo.svg';
+// App.js
+import React, { useState } from 'react';
 import './App.css';
+import ControlPanel from './components/ControlPanel';
+import DrawingBoard from './components/DrawingBoard';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [canvas, setCanvas] = useState(null);
+
+    return (
+        <div className="app-container">
+            <h1 className="app-title">PIE - Paperd.ink Editor</h1>
+            <ControlPanel canvas={canvas} />
+            <DrawingBoard setCanvas={setCanvas} />
+        </div>
+    );
 }
 
 export default App;
